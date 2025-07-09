@@ -13,7 +13,7 @@ URL = 'https://lpnu.ua/ikni'
 def on_found(title):
     pr = {
     'chat_id' : CHAT_ID,
-    'text' : f'{URL}\n{title}',
+    'text' : '@FiremanC4\n'*6 + f'{URL}\n{title}',
     }
     requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage", params = pr)
 

@@ -2,8 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '*/20 * * * *' # At every 20 minute
-    - cron: '0 * * * *' # At every hour (not every 20 minutes)
+    - cron: '0,20,40 * * * *' # At every 20 minute
   workflow_dispatch:
 
 jobs:
