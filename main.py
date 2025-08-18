@@ -4,9 +4,10 @@ from bs4 import BeautifulSoup, Tag
 
 try:
     CHAT_ID = os.environ['CHAT_ID']
+    DEBUG_CHAT_ID = os.environ['DEBUG_CHAT_ID']
     TOKEN = os.environ['TOKEN']
 except KeyError as e:
-    raise ValueError(f"Environment variable {e} is not set. Please set CHAT_ID and TOKEN.") from e
+    raise ValueError(f"Environment variable {e} is not set. Please set CHAT_ID, DEBUG_CHAT_ID and TOKEN.") from e
 
 URL = 'https://lpnu.ua/ikni'
 
@@ -19,7 +20,7 @@ def on_found(title):
 
 def on_not_found():
     pr = {
-    'chat_id' : CHAT_ID,
+    'chat_id' : DEBUG_CHAT_ID,
     'text' : f'{URL}\nНе знайдено списків студентів ІКНІ',
     }
     requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage", params = pr)
