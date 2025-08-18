@@ -45,15 +45,12 @@ if __name__ == "__main__":
 
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    news = soup.find('div', class_='views-view-grid horizontal cols-3 clearfix')
+    news = soup.select_one('#block-views-block-page-last-update-block-1 > div > div > div > div > div > span')
     if not (news and isinstance(news, Tag)):
         on_error("No news found on the page")
         raise ValueError("No news found on the page")
-    titles = [t.text for t in news.find_all('h3')]
 
-    for title in titles:
-        if 'списки студентів ікні' in title.lower():
-            on_found(title)
-            break
+    if '11 місяців' not in news.text.lower():
+        on_found(news.text)
     else:
         on_not_found()
