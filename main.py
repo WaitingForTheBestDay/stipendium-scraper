@@ -3,6 +3,9 @@ import requests
 from bs4 import BeautifulSoup, Tag 
 
 try:
+    from dotenv import load_dotenv
+    load_dotenv()
+    
     CHAT_ID = os.environ['CHAT_ID']
     DEBUG_CHAT_ID = os.environ['DEBUG_CHAT_ID']
     TOKEN = os.environ['TOKEN']
