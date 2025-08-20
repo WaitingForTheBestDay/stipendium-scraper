@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '*/15 7-21 * * *' # At every 15 minute between 7:00 and 21:59
+    - cron: '*/15 4-18 * * *' # At every 15 minute between 7:00 and 21:59 (Kyiv time zone)
   workflow_dispatch:
 
 jobs:
